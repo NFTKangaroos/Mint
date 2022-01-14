@@ -130,7 +130,6 @@ function App() {
                 <s.TextTitle style={{ textAlign: "center" }}>
                   SOLD OUT! Thank you for being part of KillerTeddiez! 🐻🔪❤️
                 </s.TextTitle>
-                <s.SpacerSmall />
                 <s.TextDescription style={{ textAlign: "center" }}>
                   You can still buy and trade KillerTeddiez NFTs on{" "}
                   <a
@@ -144,12 +143,18 @@ function App() {
             ) : (
               <>
                 <s.TextTitle style={{ textAlign: "center" }}>
-                  1 KillerTeddy costs 10 Matic
+                  1 KillerTeddy costs 10 MATIC
                 </s.TextTitle>
                 <s.SpacerXSmall />
                 <s.TextDescription style={{ textAlign: "center" }}>
                   -gas fee excluded-
                 </s.TextDescription>
+                <a
+                    target={""}
+                    href={"https://opensea.io/collection/killerteddiez/"}
+                  >
+                    Opensea - collection
+                </a>
                 <s.SpacerLarge />
                 <s.SpacerSmall />
                 <s.TextDescription style={{ textAlign: "center" }}>
