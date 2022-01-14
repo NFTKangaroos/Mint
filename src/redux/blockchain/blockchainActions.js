@@ -51,10 +51,10 @@ export const connect = () => {
           method: "net_version",
         });
         // const NetworkData = await SmartContract.networks[networkId];
-        if (networkId == 1) {
+        if (networkId == 137) {
           const SmartContractObj = new Web3EthContract(
             SmartContract,
-            "0x688db0131c807a3495c23bc1b25726a76ea31f49"
+            "0x71bd1cC1a529fe5a585c79bA0c2b8bFc85EB5016"
           );
           dispatch(
             connectSuccess({
@@ -72,13 +72,13 @@ export const connect = () => {
           });
           // Add listeners end
         } else {
-          dispatch(connectFailed("Change network to Ethereum"));
+          dispatch(connectFailed("Please change network to Polygon"));
         }
       } catch (err) {
         dispatch(connectFailed("Something went wrong"));
       }
     } else {
-      dispatch(connectFailed("Install Metamask"));
+      dispatch(connectFailed("Please install Metamask"));
     }
   };
 };

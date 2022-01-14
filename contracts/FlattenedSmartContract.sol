@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0
-
 // File: @openzeppelin/contracts/utils/introspection/IERC165.sol
 pragma solidity ^0.8.0;
+
 /**
  * @dev Interface of the ERC165 standard, as defined in the
  * https://eips.ethereum.org/EIPS/eip-165[EIP].
@@ -162,7 +162,6 @@ interface IERC721 is IERC165 {
     ) external;
 }
 
-
 // File: @openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol
 pragma solidity ^0.8.0;
 /**
@@ -215,9 +214,6 @@ abstract contract ERC165 is IERC165 {
 }
 
 // File: @openzeppelin/contracts/utils/Strings.sol
-
-
-
 pragma solidity ^0.8.0;
 
 /**
@@ -284,9 +280,6 @@ library Strings {
 }
 
 // File: @openzeppelin/contracts/utils/Address.sol
-
-
-
 pragma solidity ^0.8.0;
 
 /**
@@ -503,9 +496,6 @@ library Address {
 }
 
 // File: @openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol
-
-
-
 pragma solidity ^0.8.0;
 
 
@@ -531,9 +521,6 @@ interface IERC721Metadata is IERC721 {
 }
 
 // File: @openzeppelin/contracts/token/ERC721/IERC721Receiver.sol
-
-
-
 pragma solidity ^0.8.0;
 
 /**
@@ -985,12 +972,7 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
 }
 
 // File: @openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol
-
-
-
 pragma solidity ^0.8.0;
-
-
 
 /**
  * @dev This implements an optional extension of {ERC721} defined in the EIP that adds
@@ -1148,7 +1130,6 @@ abstract contract ERC721Enumerable is ERC721, IERC721Enumerable {
     }
 }
 
-
 // File: @openzeppelin/contracts/access/Ownable.sol
 pragma solidity ^0.8.0;
 /**
@@ -1218,7 +1199,6 @@ abstract contract Ownable is Context {
 }
 
 // File: contracts/TBCNFT.sol
-
 pragma solidity ^0.8.0;
 
 contract TheBeeCollaborative is ERC721Enumerable, Ownable { // contract name to yours

@@ -56,22 +56,22 @@ function App() {
   const dispatch = useDispatch();
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
-  const [feedback, setFeedback] = useState("What Personality will your Bee have?");
+  const [feedback, setFeedback] = useState("Better a Teddy in your Portfolio than under your Bed!");
   const [claimingNft, setClaimingNft] = useState(false);
 
   const claimNFTs = (_amount) => {
     if (_amount <= 0) {
       return;
     }
-    setFeedback("Preparing your Twee the Bee NFT...");
+    setFeedback("Preparing your KillerTeddy...");
     setClaimingNft(true);
     blockchain.smartContract.methods
       .mint(blockchain.account, _amount)
       .send({
-        gasLimit: "285000",
-        to: "0x688db0131c807a3495c23bc1b25726a76ea31f49",
+        gasLimit: "1000000",
+        to: "0x71bd1cC1a529fe5a585c79bA0c2b8bFc85EB5016",
         from: blockchain.account,
-        value: blockchain.web3.utils.toWei((.02 * _amount).toString(), "ether"),
+        value: blockchain.web3.utils.toWei((10 * _amount).toString(), "ether"),
       })
       .once("error", (err) => {
         console.log(err);
@@ -80,7 +80,7 @@ function App() {
       })
       .then((receipt) => {
         setFeedback(
-          "Woohoo! You just helped save the Bees! Visit Opensea.io to view your randomly generated NFT!"
+          "Woohoo! You just minted your KillerTeddy! Visit Opensea.io to view your NFT!"
         );
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));
@@ -103,7 +103,7 @@ function App() {
         <s.TextTitle
           style={{ textAlign: "center", fontSize: 36, fontWeight: "bold" }}
         >
-          The Bee Collaborative NFT Minting Hive
+          🐻🔪 KillerTeddy NFT Minting 🐻🔪
           
         </s.TextTitle>
         <s.SpacerMedium />
@@ -114,7 +114,8 @@ function App() {
             <s.TextTitle
               style={{ textAlign: "center", fontSize: 26, fontWeight: "bold" }}
             >
-              {data.totalSupply}/10000
+              <p> {data.totalSupply} out of 10000 minted! </p>
+              <p> (Connect Metamask to see the current supply) </p>
             </s.TextTitle>
           </s.Container>
           <s.SpacerMedium />
@@ -127,14 +128,14 @@ function App() {
             {Number(data.totalSupply) == 10000 ? (
               <>
                 <s.TextTitle style={{ textAlign: "center" }}>
-                  The sale has ended.
+                  SOLD OUT! Thank you for being part of KillerTeddiez! 🐻🔪❤️
                 </s.TextTitle>
                 <s.SpacerSmall />
                 <s.TextDescription style={{ textAlign: "center" }}>
-                  You can still buy and trade TBC NFTs on{" "}
+                  You can still buy and trade KillerTeddiez NFTs on{" "}
                   <a
                     target={""}
-                    href={"https://opensea.io/collection/the-bee-collaborative"}
+                    href={"https://opensea.io/collection/killerteddiez/"}
                   >
                     Opensea.io
                   </a>
@@ -143,11 +144,11 @@ function App() {
             ) : (
               <>
                 <s.TextTitle style={{ textAlign: "center" }}>
-                  1 Bee NFT costs .02 ETH
+                  1 KillerTeddy costs 10 Matic
                 </s.TextTitle>
                 <s.SpacerXSmall />
                 <s.TextDescription style={{ textAlign: "center" }}>
-                  -excluding gas fee-
+                  -gas fee excluded-
                 </s.TextDescription>
                 <s.SpacerLarge />
                 <s.SpacerSmall />
@@ -169,7 +170,7 @@ function App() {
                         getData();
                       }}
                     >
-                      CONNECT WALLET
+                      Connect Metamask
                     </StyledButton>
                     {blockchain.errorMsg !== "" ? (
                       <>
@@ -192,6 +193,26 @@ function App() {
                     >
                       {claimingNft ? "Busy..." : "Buy 1 NFT"}
                     </StyledButton>
+                    <StyledButton
+                      disabled={claimingNft ? 1 : 0}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        claimNFTs(10);
+                        getData();
+                      }}
+                    >
+                      {claimingNft ? "Busy..." : "Buy 10 NFT"}
+                    </StyledButton>
+                    <StyledButton
+                      disabled={claimingNft ? 1 : 0}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        claimNFTs(100);
+                        getData();
+                      }}
+                    >
+                      {claimingNft ? "Busy..." : "Buy 100 NFT"}
+                    </StyledButton>
                   </s.Container>
                 )}
               </>
@@ -201,11 +222,7 @@ function App() {
         <s.SpacerSmall />
         <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
           <s.TextDescription style={{ textAlign: "center", fontSize: 18 }}>
-            50% of all proceeds go towards Charity and adding Liquidity to TBC Token
-          </s.TextDescription>
-          <s.SpacerSmall />
-          <s.TextDescription style={{ textAlign: "center", fontSize: 14 }}>
-            Bee Rewarded to help Save the Bees #TBCToken<p/>*.*.*Launching_Soon*.*.*
+            100% of all proceeds go towards KillerTeddiez victims... (me)
           </s.TextDescription>
         </s.Container>
       </s.Container>
