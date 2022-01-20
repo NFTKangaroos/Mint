@@ -56,20 +56,20 @@ function App() {
   const dispatch = useDispatch();
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
-  const [feedback, setFeedback] = useState("Better a Teddy in your Portfolio than under your Bed!");
+  const [feedback, setFeedback] = useState("🦘 Save the Kangaroos! 🦘");
   const [claimingNft, setClaimingNft] = useState(false);
 
   const claimNFTs = (_amount) => {
     if (_amount <= 0) {
       return;
     }
-    setFeedback("Preparing your KillerTeddy...");
+    setFeedback("Preparing your Kangaroo...");
     setClaimingNft(true);
     blockchain.smartContract.methods
       .mint(blockchain.account, _amount)
       .send({
         gasLimit: "1000000",
-        to: "0x71bd1cC1a529fe5a585c79bA0c2b8bFc85EB5016",
+        to: "0xBB55046dddfCd47141873C99a423b39B71532F98",
         from: blockchain.account,
         value: blockchain.web3.utils.toWei((10 * _amount).toString(), "ether"),
       })
@@ -80,7 +80,7 @@ function App() {
       })
       .then((receipt) => {
         setFeedback(
-          "Woohoo! You just minted your KillerTeddy! Visit Opensea.io to view your NFT!"
+          "Woohoo! You just minted your 🦘! Visit Opensea.io to view your NFT!"
         );
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));
@@ -103,7 +103,7 @@ function App() {
         <s.TextTitle
           style={{ textAlign: "center", fontSize: 36, fontWeight: "bold" }}
         >
-          🐻🔪 KillerTeddy NFT Minting 🐻🔪
+          🦘 Kangaroo Minting 🦘
           
         </s.TextTitle>
         <s.SpacerMedium />
@@ -128,13 +128,13 @@ function App() {
             {Number(data.totalSupply) == 10000 ? (
               <>
                 <s.TextTitle style={{ textAlign: "center" }}>
-                  SOLD OUT! Thank you for being part of KillerTeddiez! 🐻🔪❤️
+                  SOLD OUT! Thank you for being part of KangaroosNFT! 🦘❤️
                 </s.TextTitle>
                 <s.TextDescription style={{ textAlign: "center" }}>
                   You can still buy and trade KillerTeddiez NFTs on{" "}
                   <a
                     target={""}
-                    href={"https://opensea.io/collection/killerteddiez/"}
+                    href={"https://opensea.io/collection/nftkangaroos-1/"}
                   >
                     Opensea.io
                   </a>
@@ -149,9 +149,10 @@ function App() {
                 <s.TextDescription style={{ textAlign: "center" }}>
                   -gas fee excluded-
                 </s.TextDescription>
+                <s.SpacerXSmall />
                 <a
                     target={""}
-                    href={"https://opensea.io/collection/killerteddiez/"}
+                    href={"https://opensea.io/collection/nftkangaroos-1/"}
                   >
                     Opensea - collection
                 </a>
@@ -198,26 +199,6 @@ function App() {
                     >
                       {claimingNft ? "Busy..." : "Buy 1 NFT"}
                     </StyledButton>
-                    <StyledButton
-                      disabled={claimingNft ? 1 : 0}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        claimNFTs(10);
-                        getData();
-                      }}
-                    >
-                      {claimingNft ? "Busy..." : "Buy 10 NFT"}
-                    </StyledButton>
-                    <StyledButton
-                      disabled={claimingNft ? 1 : 0}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        claimNFTs(100);
-                        getData();
-                      }}
-                    >
-                      {claimingNft ? "Busy..." : "Buy 100 NFT"}
-                    </StyledButton>
                   </s.Container>
                 )}
               </>
@@ -227,7 +208,7 @@ function App() {
         <s.SpacerSmall />
         <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
           <s.TextDescription style={{ textAlign: "center", fontSize: 18 }}>
-            100% of all proceeds go towards KillerTeddiez victims... (me)
+            100% of all proceeds go towards creating more value for the NFT space ❤️
           </s.TextDescription>
         </s.Container>
       </s.Container>
